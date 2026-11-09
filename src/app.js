@@ -3,6 +3,8 @@ const cors = require("cors");
 
 const authRoutes = require("./modules/auth/auth.routes");
 const driverRoutes = require("./modules/driver/driver.routes");
+const adminRoutes = require("./modules/admin/admin.routes");
+
 
 const errorHandler = require("./middleware/errorHandler");
 
@@ -10,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use("/api/admin", adminRoutes);
 
 app.get("/", (req, res) => {
   res.json({
